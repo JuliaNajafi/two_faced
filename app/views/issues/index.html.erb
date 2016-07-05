@@ -1,13 +1,26 @@
-<h1>Two Faced </h1>
+<h1>TWO FACED </h1>
 <h2>Your news source that offers both sides of the story</h2>
 
 <h3>Issues <%= link_to "(+)", new_issue_path %></h3>
-<p>
-  <% @issues.each do |issue| %>
-  <li>
-    <%= link_to issue.title, issue %>
-    <%= issue.description %>
-    <%= issue.created_at %>
-  </li>
+
+<% @issues.each do |issue| %>
+  <h4><%= link_to issue.title, issue %></h4>
+  <img src="<%= issue.img_url %>"/>
+  <p><%= issue.description %></p>
+  <div class = "headlines">
+  <div class = "left">
+    <h5>From the Left...</h5>
+    <% issue.headlines.where(affiliation: 'left').each do |headline| %>
+      <p><%= headline.title %></p>
+      <p><%= headline.source %></p>
+    <% end %>
+  </div>
+  <div class = "right">
+    <h5>From the Right...</h5>
+    <% issue.headlines.where(affiliation: 'right').each do |headline| %>
+      <p><%= headline.title %></p>
+      <p><%= headline.source %></p>
+    <% end %>
+  </div>
+</div>
 <% end %>
-</p>

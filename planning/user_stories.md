@@ -12,4 +12,4 @@ for later
 ## as a user, be able to 'follow' certain issues - this means that this issue is then saved to your own profile
 ## as an administrator, be able to delete issues
 ## as a user, be able to upvote specific issues
-## as a user be able to search for issues relating to search input 
+## as a user be able to search for issues relating to search input

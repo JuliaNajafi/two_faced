@@ -1,16 +1,15 @@
-<!-- <h2>New Headline for <%= @issue.title %></h2>
+<h2>Add headline for: <%= @issue.title %></h2>
 
 <%= form_for [@issue, @headline] do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
 
   <%= f.label :url %>
   <%= f.text_field :url %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.radio_button :affiliation, 'left' %>
+  <%= f.label :affiliation, 'left', :value => 'left' %>
 
-  <%= f.label
+  <%= f.radio_button :affiliation, 'right' %>
+  <%= f.label :affiliation, 'right', :value => 'right' %>
 
   <%= f.submit %>
-<% end %> -->
+<% end %>

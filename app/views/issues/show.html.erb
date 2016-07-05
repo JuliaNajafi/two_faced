@@ -1,10 +1,24 @@
 <h2><%= @issue.title %><%= link_to " (edit)", edit_issue_path(@issue) %></h2>
 
-
-<ul>
-  <% @issue.headlines.each do |headline| %>
-    <li>
-      <%= link_to "#{headline.title} (#{headline.description})", issue_headline_path(@issue, headline) %>
-    </li>
+<img src="<%= @issue.img_url %>"/>
+<p><%= @issue.description %></p>
+<div class = "headlines">
+<div class = "left">
+  <h5>From the Left...</h5>
+  <% @issue.headlines.where(affiliation: 'left').each do |headline| %>
+    <p><%= headline.title %></p>
+    <p><%= headline.source %></p>
   <% end %>
-</ul>
+  <h6><%= link_to "Add Headline +", new_issue_headline_path(@issue) %></h6>
+</div>
+<div class = "right">
+  <h5>From the Right...</h5>
+  <% @issue.headlines.where(affiliation: 'right').each do |headline| %>
+    <p><%= headline.url %></p>
+    <% result = parse_title_and_img(headline.url)%>
+    <p><%= result[:title] %></p>
+      <%= iamge_tag(result[:photo_url]) %>
+  <% end %>
+  <h6><%= link_to "Add Headline +", new_issue_headline_path(@issue) %></h6>
+</div>
+</div>

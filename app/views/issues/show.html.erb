@@ -1,0 +1,9 @@
+<h1><%= @issue.title %></h1>
+
+<ul>
+  <% @issue.headlines.each do |headline| %>
+    <li>
+      <%= link_to "#{headline.title} (#{headline.description})", issue_headline_path(@issue, headline) %>
+    </li>
+  <% end %>
+</ul>

@@ -22,7 +22,7 @@
     <% if issue.headlines.where(affiliation: 'left').any? %>
       <% headline = issue.headlines.where(affiliation: 'left').first %>
       <% result = parse_title_and_img(headline.url)%>
-      <p><%= result[:title] %></p>
+      <p><%= link_to result[:title], headline.url %></p>
       <img src= "<%=result[:image] %>" />
     <%end %>
   </div>
@@ -31,7 +31,7 @@
     <% if issue.headlines.where(affiliation: 'left').any? %>
       <% headline = issue.headlines.where(affiliation: 'right').first %>
       <% result = parse_title_and_img(headline.url)%>
-      <p><%= result[:title] %></p>
+      <p><%= link_to result[:title], headline.url %></p>
       <img src= "<%=result[:image] %>" />
     <%end %>
   </div>

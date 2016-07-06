@@ -19,17 +19,21 @@
 <div class = "headlines">
   <div class = "left">
     <h5>From the Left...</h5>
-    <% headline = issue.headlines.where(affiliation: 'left').first %>
+    <% if issue.headlines.where(affiliation: 'left').any? %>
+      <% headline = issue.headlines.where(affiliation: 'left').first %>
       <% result = parse_title_and_img(headline.url)%>
       <p><%= result[:title] %></p>
       <img src= "<%=result[:image] %>" />
+    <%end %>
   </div>
   <div class = "right">
     <h5>From the Right...</h5>
-    <% headline = issue.headlines.where(affiliation: 'right').first %>
+    <% if issue.headlines.where(affiliation: 'left').any? %>
+      <% headline = issue.headlines.where(affiliation: 'right').first %>
       <% result = parse_title_and_img(headline.url)%>
       <p><%= result[:title] %></p>
       <img src= "<%=result[:image] %>" />
+    <%end %>
   </div>
 </div>
 <% end %>

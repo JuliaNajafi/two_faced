@@ -1,25 +1,36 @@
 <h1>TWO FACED </h1>
 <h2>Your news source that offers both sides of the story</h2>
 
+<div class= "search">
+  <span>Search for an Issue!</span>
+  <form class="searchbar" action="/issues" method="get">
+    <input type="search" name="q" value="" >
+  </form>
+</div>
+
+
 <h3>Issues <%= link_to "(+)", new_issue_path %></h3>
 
+
 <% @issues.each do |issue| %>
-  <h4><%= link_to issue.title, issue %></h4>
-  <img src="<%= issue.img_url %>"/>
-  <p><%= issue.description %></p>
-  <div class = "headlines">
+<h4><%= link_to issue.title, issue %></h4>
+<img src="<%= issue.img_url %>"/>
+<p><%= issue.description %></p>
+<div class = "headlines">
   <div class = "left">
     <h5>From the Left...</h5>
     <% issue.headlines.where(affiliation: 'left').each do |headline| %>
-      <p><%= headline.title %></p>
-      <p><%= headline.source %></p>
+      <% result = parse_title_and_img(headline.url)%>
+      <p><%= result[:title] %></p>
+      <img src= "<%=result[:image] %>" />
     <% end %>
   </div>
   <div class = "right">
     <h5>From the Right...</h5>
     <% issue.headlines.where(affiliation: 'right').each do |headline| %>
-      <p><%= headline.title %></p>
-      <p><%= headline.source %></p>
+      <% result = parse_title_and_img(headline.url)%>
+      <p><%= result[:title] %></p>
+      <img src= "<%=result[:image] %>" />
     <% end %>
   </div>
 </div>

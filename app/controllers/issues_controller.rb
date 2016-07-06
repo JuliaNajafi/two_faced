@@ -33,6 +33,18 @@ class IssuesController < ApplicationController
     redirect_to issues_path
   end
 
+  def add_favorite
+    @issue = Issue.find(params[:id])
+    @issue.favorites.create(user: current_user)
+    redirect_to issue_path(@issue)
+  end
+
+  def remove_favorite
+    @issue = Issue.find(params[:id])
+    @issue.favorites.where(user: current_user).destroy_all
+    redirect_to issue_path(@issue)
+  end
+
 
   private
   def issue_params

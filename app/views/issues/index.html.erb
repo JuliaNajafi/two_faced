@@ -13,7 +13,13 @@
 
 
 <% @issues.each do |issue| %>
-<h4><%= link_to issue.title, issue %></h4>
+<h4><%= link_to issue.title, issue %>
+  <% if Favorite.find_by(user: current_user, issue: issue) %>
+      <%= link_to "&hearts;".html_safe, remove_favorite_issue_path(issue), method: :delete, class: "fav" %>
+  <% else %>
+      <%= link_to "&hearts;".html_safe, add_favorite_issue_path(issue), method: :post, class: "no-fav" %>
+  <% end %>
+</h4>
 <img src="<%= issue.img_url %>"/>
 <p><%= issue.description %></p>
 <div class = "headlines">

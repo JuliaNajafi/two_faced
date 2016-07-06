@@ -1,9 +1,18 @@
 
 
-<h3><%= @issue.title %><%= link_to " (edit)", edit_issue_path(@issue) %></h3>
+<h3>
+  <%= @issue.title %>
+  <%= link_to " (edit)", edit_issue_path(@issue) %>
+  <% if Favorite.find_by(user: current_user, issue: @issue) %>
+      <%= link_to "&hearts;".html_safe, remove_favorite_issue_path(@issue), method: :delete, class: "fav" %>
+  <% else %>
+      <%= link_to "&hearts;".html_safe, add_favorite_issue_path(@issue), method: :post, class: "no-fav" %>
+  <% end %>
+</h3>
 
 <img src="<%= @issue.img_url %>"/>
 <p><%= @issue.description %></p>
+
 <div class = "headlines">
 <div class = "left">
   <h5>From the Left...</h5>

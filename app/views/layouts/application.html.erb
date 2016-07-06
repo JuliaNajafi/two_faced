@@ -7,9 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <form class="" action="/issues" method="get">
-      <input type="search" name="q" value="">
+    <div class= "search">
+    <span>Search</span>
+    <form class="searchbar" action="/issues" method="get">
+      <input type="search" name="q" value="" >
     </form>
+    </div>
 
 
 <%= yield %>

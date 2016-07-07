@@ -1,4 +1,7 @@
 
-<% @user.favorites.each do |favorite| %>
-<%= link_to favorite.issue.title, issue_path(favorite.issue)  %>
+<h4> Your Favorites: </h4>
+<div class= "favorites">
+  <% @user.favorites.each do |favorite| %>
+  <h4><%= link_to favorite.issue.title, issue_path(favorite.issue)  %> <h4>
 <% end %>
+</div>

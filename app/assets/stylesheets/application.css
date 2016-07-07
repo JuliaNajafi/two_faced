@@ -24,6 +24,7 @@ h1 {
   margin-bottom: 70px;
   font-size: 50px;
   margin-top: 10px;
+
 }
 h2 {
   font-family: Impact, Charcoal, sans-serif;
@@ -37,11 +38,32 @@ h2 {
 
 h3 {
   font-size: 30px;
-  margin-top: 0px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.title {
+  display: inline-block;
+  width: 100%;
+}
+span {
+  text-align: right;
+}
+
+div.search {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.title h3 {
+  text-align: left;
+  margin-left: 270px;
+  font-size: 40px;
+  margin-top: 20px;
 }
 
 img {
-  height: 100px;
+  height: 200px;
+  border-radius: 5%;
 }
 .headlines {
   display:flex;
@@ -51,16 +73,44 @@ img {
   width: 50%;
 }
 
-.search {
-  text-align: right;
-  margin-top: 10px;
-  margin-right: 50px;
+h4 {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: black;
+  text-align: center;
+  margin-top: 15px;
+}
+
+h5 {
+  font-size: 50px;
+  margin-top: 5px;
+}
+h6 {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.left h5 {
+  /*color: #0066cc;*/
+  color: black;
+  font-family: 'Just Another Hand', cursive;
+  width: 300px;
+  margin: auto;
 
 }
-span {
-  margin-right: 5px;
-
+.right h5 {
+  /*color: #7D1935;*/
+  color: black;
+  font-family: 'Just Another Hand', cursive;
+  width: 300px;
+  margin: auto;
 }
+
+
+a:visited {
+  color: black;
+}
+
+
 
 a.fav {
   text-decoration: none;
@@ -77,11 +127,23 @@ a.no-fav {
 }
 
 .left {
-  border: thin solid blue;
+  /*border: thin solid blue;*/
+  margin-right: 10px;
+  margin-left: 20px;
+  /*border-radius: 5%;*/
+  padding-bottom: 20px;
+  /*box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);*/
 }
 .right {
-  border: thin solid red;
+  /*border: thin solid red;*/
+  margin-right: 20px;
+  margin-left: 10px;
+  /*border-radius: 5%;*/
+  padding-bottom: 20px;
+  /*box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);*/
+
 }
+
 
 
 

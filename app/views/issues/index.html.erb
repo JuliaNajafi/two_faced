@@ -1,26 +1,20 @@
 <h1>TWO FACED </h1>
 <h2>Your news source that offers both sides of the story</h2>
 
-<div class= "search">
-  <span>Search for an Issue!</span>
-  <form class="searchbar" action="/issues" method="get">
-    <input type="search" name="q" value="" >
-  </form>
+<div class= "title">
+  <h3>Issues <%= link_to "(+)", new_issue_path %></h3>
 </div>
 
 
-<h3>Issues <%= link_to "(+)", new_issue_path %></h3>
-
-
 <% @issues.each do |issue| %>
-<h4><%= link_to issue.title, issue %>
+<h4> <%= link_to issue.title, issue %>
   <% if Favorite.find_by(user: current_user, issue: issue) %>
       <%= link_to "&hearts;".html_safe, remove_favorite_issue_path(issue), method: :delete, class: "fav" %>
   <% else %>
       <%= link_to "&hearts;".html_safe, add_favorite_issue_path(issue), method: :post, class: "no-fav" %>
   <% end %>
 </h4>
-<img src="<%= issue.img_url %>"/>
+<!-- <img src="<%= issue.img_url %>"/> -->
 <p><%= issue.description %></p>
 <div class = "headlines">
   <div class = "left">
@@ -31,6 +25,7 @@
       <p><%= link_to result[:title], headline.url %></p>
       <img src= "<%=result[:image] %>" />
     <%end %>
+    <h6><%= link_to "see more headlines..", issue %></h6>
   </div>
   <div class = "right">
     <h5>From the Right...</h5>
@@ -40,6 +35,15 @@
       <p><%= link_to result[:title], headline.url %></p>
       <img src= "<%=result[:image] %>" />
     <%end %>
+    <h6><%= link_to "see more headlines..", issue %></h6>
   </div>
 </div>
+________________________________________________________________________
 <% end %>
+
+<div class = "search">
+  <span>Search for an Issue!</span>
+  <form class="searchbar" action="/issues" method="get">
+    <input type="search" name="q" value="" >
+  </form>
+</div>

@@ -54,7 +54,7 @@ img {
 .search {
   text-align: right;
   margin-top: 10px;
-  margin-right: 100px;
+  margin-right: 50px;
 
 }
 span {
@@ -74,6 +74,13 @@ a.no-fav {
 
 .fav:visited, .no-fav:visited {
   text-decoration: none;
+}
+
+.left {
+  border: thin solid blue;
+}
+.right {
+  border: thin solid red;
 }
 
 

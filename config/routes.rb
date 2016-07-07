@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root to: 'issues#index'
 
   resources :issues do
@@ -12,5 +13,8 @@ Rails.application.routes.draw do
       delete 'remove_favorite'
     end
   end
+
+  get '/profile', to: "users#show"
+
 
 end

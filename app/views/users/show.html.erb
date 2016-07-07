@@ -1,0 +1,4 @@
+
+<% @user.favorites.each do |favorite| %>
+<%= link_to favorite.issue.title, issue_path(favorite.issue)  %>
+<% end %>
